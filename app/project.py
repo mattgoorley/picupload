@@ -21,8 +21,7 @@ def index():
             return redirect(request.url)
 
         file = request.files['picture']
-        # if user does not select file, browser also
-        # submit a empty part without filename
+
         if file.filename == '':
             flash('No selected file')
             return redirect(request.url)
@@ -37,11 +36,3 @@ def index():
 @app.route('/<filename>')
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
-
-@app.route('/hello')
-def hello():
-    data = {"data":"Hello World"}
-    return redirect(url_for('hello', data=data))
-
-# if __name__ == "__main__":
-#     app.run(debug=True, host='0.0.0.0', port=8000)
