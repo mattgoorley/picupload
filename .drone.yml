@@ -1,0 +1,3 @@
+image: dockerfile/apache2
+script:
+  - echo hello world
